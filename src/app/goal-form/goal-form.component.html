@@ -1,0 +1,40 @@
+<div class="container-fluid">
+<h2>Create a new Goal</h2>
+<hr>
+
+<form (ngSubmit)='submitGoal()' #goalForm='ngForm'>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text"  required class="form-control" id="name" [(ngModel)]="newGoal.name" name="name" #name='ngModel'>
+
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      <p>Name is required</p>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="name">Description:</label>
+    <textarea [(ngModel)]="newGoal.description" name="description" class="form-control"  id="description" rows="4" required  #description='ngModel'></textarea>
+
+    <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+      <p>Description is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Completion Date:</label>
+    <input type="date" [(ngModel)]="newGoal.completionDate" name="completionDate" id="complete" required  #completionDate="ngModel">
+
+    <div [hidden]="completionDate.valid || completionDate.pristine" class="alert alert-danger">
+      <p>Complete Date  is required</p>
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Goal</button>
+</form>
+
+
+
+</div>
